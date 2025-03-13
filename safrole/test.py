@@ -20,7 +20,7 @@ def transform_block(input: dict) -> dict:
     block = create_dummy_block()
     block["extrinsic"]["tickets"] = input["extrinsic"]
     block["header"]["slot"] = input["slot"]
-    block["header"]["epoch_mark"] = input["entropy"]
+    block["header"]["epoch_mark"]["entropy"] = input["entropy"]
     return block
 
 def transform_state(state: dict) -> dict:
@@ -60,4 +60,5 @@ if __name__ == "__main__":
         result = response.json()
         if result.status != "ok":
             print(f"Failed: {file}")
+
             break
